@@ -1,28 +1,15 @@
-const Hello = (props) => {
-  return (
-    <div>
-      <p>Hellow {props.name}</p>
-    </div>
-  );
-};
-
 const App = () => {
-  console.log("hellow world");
-  const now = new Date();
-  const a = 10;
-  const b = 20;
-  console.log(now, a + b);
-  const name = "adrian"
+  const course = "Half Stack application development";
+  const part1 = "Fundamentals of React";
+  const exercises1 = 10
+
 
   return (
     <div>
-      <p>hellow orld</p>
+      <h1>{course}</h1>
       <p>
-        {a} plus {b} is {a + b}
+        {part1} {exercises1}
       </p>
-      <Hello name="George" />
-      <Hello name={ name} />
-      <Hello name="Castro" />
     </div>
   );
 };
