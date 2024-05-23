@@ -30,6 +30,15 @@ const App = () => {
     copy[selected] += 1;
     setPoints(copy);
   };
+
+  const getMaxVotedAnecdote = () => {
+    const maxVotes = Math.max(...Object.values(points));
+    const maxVotedIndex = Object.keys(points).find(key => points[key] === maxVotes);
+    console.log(maxVotedIndex);
+    return maxVotedIndex;
+  };
+  const maxVotedIndex = getMaxVotedAnecdote();
+
   return (
     <div>
       <br></br>
@@ -41,7 +50,13 @@ const App = () => {
       <button onClick={handleVote}>Vote</button>
 
       <button onClick={handleClick}>Rand</button>
+
+      <h4>
+        Most Anecdotes max votes value is
+      </h4>
+      <p>anecdotes {anecdotes[maxVotedIndex]} whit votes is <b>{points[ maxVotedIndex ]}</b> </p>
     </div>
+
   );
 };
 
