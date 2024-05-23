@@ -1,14 +1,22 @@
 import { useState } from "react";
 
 const Statistics = (props) => {
+  if(props.average != 0 && props.average != 0 && props.total != 0){
+    return (
+      <div>
+        <h4> Averague total</h4>
+        {props.average}
+        <h4>Positive All</h4>
+        {props.positive} %
+      </div>
+    );
+  }
   return (
     <div>
-      <h4> Averague total</h4>
-      {props.average}
-      <h4>Positive All</h4>
-      {props.positive} %
+      no feedback given
     </div>
   );
+
 };
 
 const App = () => {
