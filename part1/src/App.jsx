@@ -4,10 +4,16 @@ const Button = (props) => (
   <button onClick={props.handleClick}>{props.text}</button>
 );
 
-const StatisticLine = ( props) => (
+const StatisticLine = (props) => (
   <div>
-    <h4>{props.text}</h4>
-    <p>{props.value}</p>
+    <table>
+      <tbody>
+        <tr>
+          <td>{props.text}</td>
+          <td>{props.value}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 );
 const Statistics = (props) => {
@@ -18,7 +24,10 @@ const Statistics = (props) => {
   return (
     <div>
       <StatisticLine text="Average score" value={props.average.toFixed(2)} />
-      <StatisticLine text="Positive feedback" value={`${(props.positive * 100).toFixed(2)}%`} />
+      <StatisticLine
+        text="Positive feedback"
+        value={`${(props.positive * 100).toFixed(2)}%`}
+      />
     </div>
   );
 };
@@ -54,4 +63,3 @@ const App = () => {
 };
 
 export default App;
-
