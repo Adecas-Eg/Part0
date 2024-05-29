@@ -1,50 +1,52 @@
-import Course from "./components/Course";
+import { useState } from "react";
 
 const App = () => {
-  const course = {
-    id: 1,
-    name: "Half Stack application development",
-    parts: [
-      {
-        name: "Fundamentals of React",
-        exercises: 10,
-        id: 1,
-      },
-      {
-        name: "Using props to pass data",
-        exercises: 7,
-        id: 2,
-      },
-      {
-        name: "State of a component",
-        exercises: 14,
-        id: 3,
-      },
-      {
-        name: "Rodux",
-        exercises: 11,
-        id: 4,
-      },
-      {
-        name: 'Node.js',
-        id: 7,
-        parts: [
-          {
-            name: 'Routing',
-            exercises: 3,
-            id: 1
-          },
-          {
-            name: 'Middlewares',
-            exercises: 7,
-            id: 2
-          }
-        ]
-      }
-    ],
+  const [persons, setPersons] = useState([{ name: "Arto Hellas", id: 1 }]);
+  const [newName, setNewName] = useState("");
+
+  const [showAll, setShowAll] = useState(true);
+
+  // const notesToShow = showAll
+  //   ? notes
+  //   : notes.filter((note) => note.important === true);
+
+  // const persons = showAll ? persons
+
+  const addName = (event) => {
+    event.preventDefault();
+    const personObject = {
+      name: newName,
+      id: persons.length + 1,
+    };
+    setPersons(persons.concat(personObject));
+    setNewName("");
+    console.log(persons);
   };
 
-  return <Course course={course} />;
+
+  const handleNewName = (event) => {
+    setNewName(event.target.value);
+  };
+
+  return (
+    <div>
+      <h2>Phonebook</h2>
+      <form onSubmit={addName}>
+        <div>
+          name: <input  value={newName}
+          onChange={handleNewName}/>
+        </div>
+        <ul>
+          {persons.map((person) => <li key={person.id}>  {person.name} </li>)}
+        </ul>
+        <div>
+          <button type="submit">add</button>
+        </div>
+      </form>
+      <h2>Numbers</h2>
+      ...
+    </div>
+  );
 };
 
 export default App;

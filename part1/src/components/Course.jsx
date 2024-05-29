@@ -26,10 +26,15 @@ const Course = ({ course }) => {
       </p>
       {course.parts.map((part) => {
         if (part.parts) {
-            <h4> {part.name}</h4>
-         return part.parts.map((subPart) => <li key={subPart.id}> {subPart.name} and {subPart.exercises}</li>)
+          <h4> {part.naxme}</h4>;
+          return part.parts.map((subPart) => (
+            <li key={subPart.id}>
+              {" "}
+              {subPart.name} and {subPart.exercises}
+            </li>
+          ));
         } else {
-          return null
+          return null;
         }
       })}
     </div>
